@@ -1,4 +1,4 @@
-# embedded-CI_docker-buildroot-action
+# docker-buildroot-action
 
 This call a buildroot's make target using a docke with all dependencies installed.
 
@@ -20,8 +20,8 @@ This call a buildroot's make target using a docke with all dependencies installe
 
 ## Example usage
 
-uses: fmahiant/embedded-CI_docker-buildroot-action@v1
-with:
-  make-target: 'all'
-  buildroot-path: 'buildroot-2022.02'
-  buildroot-external-path: 'my_br_externals'
+    uses: fmahiant/embedded-CI_docker-buildroot-action@v1
+    with:
+        make-target: 'all'
+        buildroot-path: 'buildroot-2022.02'
+        buildroot-external-path: 'my_br_externals'    
