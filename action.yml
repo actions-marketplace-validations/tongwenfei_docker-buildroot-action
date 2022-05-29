@@ -17,7 +17,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
-    ECI_BR_RELATIVE_PATH: ${{ inputs.buildroot-path }}
-    ECI_BR_EXTERNAL_RELATIVE_PATH: ${{ inputs.buildroot-external-path }}
+    INPUT_BUILDROOT-PATH:
+    INPUT_BUILDROOT-EXTERNAL-PATH:
   args:
     - ${{ inputs.make-target }}
