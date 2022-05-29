@@ -5,15 +5,15 @@ This call a buildroot's make target using a docker with all dependencies install
 ## Inputs
 
 
-## `make-target`
+## `make_target`
 
 **Required** The target to call greet. Default `"help"`.
 
-## `buildroot-path`
+## `buildroot_path`
 
 **Required** Path(relative to GITHUB_WORKSPACE) to the root of buildroot .
 
-## `buildroot-external-path`
+## `buildroot_external_path`
 
 **Required** Path(relative to GITHUB_WORKSPACE) to the buildroot extrernal tree.
 
@@ -22,6 +22,6 @@ This call a buildroot's make target using a docker with all dependencies install
 
     uses: fmahiant/embedded-CI_docker-buildroot-action@v1
     with:
-        make-target: 'all'
-        buildroot-path: 'buildroot-2022.02'
-        buildroot-external-path: 'my_br_externals'    
+        make_target: 'all'
+        buildroot_path: 'buildroot-2022.02'
+        buildroot_external-path: 'my_br_externals'    

@@ -2,14 +2,14 @@
 name: 'docker buildroot'
 description: 'Builder for buildroot projects of embedded-CI'
 inputs:
-  make-target:  # id of input
+  make_target:  # id of input
     description: 'make target of builroot to call'
     required: true
     default: 'help'
-  buildroot-path:
+  buildroot_path:
     description: 'Path(relative to GITHUB_WORKSPACE) to the root of buildroot'
     required: true
-  buildroot-external-path:
+  buildroot_external_path:
     description: 'Path(relative to GITHUB_WORKSPACE) to the buildroot extrernal tree'
     required: true
 
@@ -17,4 +17,4 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.make-target }}
+    - ${{ inputs.make_target }}
