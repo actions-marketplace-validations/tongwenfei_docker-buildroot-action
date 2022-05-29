@@ -1,0 +1,23 @@
+# action.yml
+name: 'docker buildroot'
+description: 'Builder for buildroot projects of embedded-CI'
+inputs:
+  make-target:  # id of input
+    description: 'make target of builroot to call'
+    required: true
+    default: 'help'
+  buildroot-path:
+    description: 'Path(relative to GITHUB_WORKSPACE) to the root of buildroot'
+    required: true
+  buildroot-external-path:
+    description: 'Path(relative to GITHUB_WORKSPACE) to the buildroot extrernal tree'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    ECI_BR_RELATIVE_PATH: ${{ buildroot-path }}
+    ECI_BR_EXTERNAL_RELATIVE_PATH: ${{ buildroot-external-path }}
+  args:
+    - ${{ make-target }}
