@@ -1,6 +1,6 @@
 # docker-buildroot-action
 
-This call a buildroot's make target using a docke with all dependencies installed.
+This call a buildroot's make target using a docker with all dependencies installed.
 
 ## Inputs
 
