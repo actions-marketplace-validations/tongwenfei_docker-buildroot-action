@@ -16,8 +16,5 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  env:
-    INPUT_BUILDROOT-PATH: $ {{ inputs.buildroot-path }}
-    INPUT_BUILDROOT-EXTERNAL-PATH:  $ {{ inputs.buildroot-external-path }}
   args:
     - ${{ inputs.make-target }}
