@@ -37,5 +37,5 @@ RUN apt-get update && \
     fakeroot \
     && apt-get clean -y
 ENTRYPOINT make BR2_EXTERNAL=$(pwd)/$INPUT_BUILDROOT_EXTERNAL_PATH -C $(pwd)/$INPUT_BUILDROOT_PATH
-CMD help
+
 
