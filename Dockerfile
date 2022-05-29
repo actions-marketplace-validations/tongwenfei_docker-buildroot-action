@@ -36,6 +36,6 @@ RUN apt-get update && \
     libfdt-dev \
     fakeroot \
     && apt-get clean -y
-ENTRYPOINT [ "make", "BR2_EXTERNAL=$(pwd)/$(ECI_BR_EXTERNAL_RELATIVE_PATH)/", "-C", "$(pwd)/$(ECI_BR_RELATIVE_PATH)"]
+ENTRYPOINT [ "make", "BR2_EXTERNAL=$(pwd)/$(INPUT_BUILDROOT-PATH)/", "-C", "$(pwd)/$(INPUT_BUILDROOT-PATH)"]
 CMD [ "help" ]
 
