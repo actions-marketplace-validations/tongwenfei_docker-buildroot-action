@@ -38,10 +38,10 @@ RUN apt-get update && \
     && apt-get clean -y
 RUN echo "#! /bin/bash" > /etc/buildroot.sh
 RUN echo "if [ $# -eq 2 ]; then" >> /etc/buildroot.sh
-RUN echo "echo \"$1\n$2\"" >> /etc/buildroot.sh
+RUN echo "echo $1     $2" >> /etc/buildroot.sh
 RUN echo "-C $(pwd)/$1 $2" >> /etc/buildroot.sh
 RUN echo "elif [ $# -eq 3 ]; then" >> /etc/buildroot.sh
-RUN echo "echo \"$1\n$2\n$3\"" >> /etc/buildroot.sh
+RUN echo "echo $1     $2     $3" >> /etc/buildroot.sh
 RUN echo "make BR2_EXTERNAL=$(pwd)/$3 -C $(pwd)/$1 $2" >> /etc/buildroot.sh
 RUN echo "else" >> /etc/buildroot.sh"
 RUN echo "echo para error" >> /etc/buildroot.sh
