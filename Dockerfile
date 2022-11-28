@@ -37,6 +37,9 @@ RUN apt-get update && \
     fakeroot \
     && apt-get clean -y
 RUN echo "#! /bin/bash" > /etc/buildroot.sh
+RUN echo "echo \"INPUT_BUILDROOT_PATH: $INPUT_BUILDROOT_PATH\"" >> /etc/buildroot.sh
+RUN echo "echo \"INPUT_MAKE_TARGET: $INPUT_MAKE_TARGET\n"" >> /etc/buildroot.sh
+RUN echo "echo \"INPUT_BUILDROOT_EXTERNAL_PATH: $INPUT_BUILDROOT_EXTERNAL_PATH\"" >> /etc/buildroot.sh
 RUN echo "if [ $# -eq 2 ]; then" >> /etc/buildroot.sh
 RUN echo "echo $1 $2" >> /etc/buildroot.sh
 RUN echo "-C $(pwd)/$1 $2" >> /etc/buildroot.sh
