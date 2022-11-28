@@ -36,11 +36,11 @@ RUN apt-get update && \
     libfdt-dev \
     fakeroot \
     && apt-get clean -y
-ENTRYPOINT if [ $INPUT_BUILDROOT_EXTERNAL_PATH ];then \
-echo "INPUT_BUILDROOT_EXTERNAL_PATH IS NOT EXISTS" \
-make BR2_EXTERNAL=$(pwd)/$INPUT_BUILDROOT_EXTERNAL_PATH -C $(pwd)/$INPUT_BUILDROOT_PATH $INPUT_MAKE_TARGET \
-else \
-make  -C $(pwd)/$INPUT_BUILDROOT_PATH $INPUT_MAKE_TARGET \
-fi
-
-
+RUN echo "if [ $INPUT_BUILDROOT_EXTERNAL_PATH ];then" > /etc/buildroot.sh
+RUN echo "echo \"INPUT_BUILDROOT_EXTERNAL_PATH IS NOT EXISTS\"" >> /etc/buildroot.sh
+RUN echo "make BR2_EXTERNAL=$(pwd)/$INPUT_BUILDROOT_EXTERNAL_PATH -C $(pwd)/$INPUT_BUILDROOT_PATH $INPUT_MAKE_TARGET" >> /etc/buildroot.sh
+RUN echo "else" >> /etc/buildroot.sh
+RUN echo "make  -C $(pwd)/$INPUT_BUILDROOT_PATH $INPUT_MAKE_TARGET" >> /etc/buildroot.sh
+RUN echo "fi" >> /etc/buildroot.sh
+RUN chmod 755 /etc/buildroot.sh
+ENTRYPOINT ["/etc/buildroot.sh"]
