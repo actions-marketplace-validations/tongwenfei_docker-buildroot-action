@@ -1,5 +1,5 @@
 # action.yml
-name: 'docker buildroot'
+name: 'docker build buildroot'
 description: 'Builder for buildroot projects of embedded-CI'
 inputs:
   make_target:  # id of input
