@@ -57,5 +57,6 @@ RUN echo "echo para error" >> /etc/buildroot.sh
 RUN echo "exit 1" >> /etc/buildroot.sh
 RUN echo "fi" >> /etc/buildroot.sh
 RUN chmod 755 /etc/buildroot.sh
-ENTRYPOINT /etc/buildroot.sh $*
+#ENTRYPOINT /etc/buildroot.sh $*
 #ENTRYPOINT echo $*
+ENTRYPOINT make -C $(pwd)/$INPUT_BUILDROOT_PATH $INPUT_MAKE_TARGET
