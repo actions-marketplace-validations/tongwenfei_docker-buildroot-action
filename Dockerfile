@@ -41,13 +41,17 @@ RUN echo "echo \"INPUT_BUILDROOT_PATH: $INPUT_BUILDROOT_PATH\"" >> /etc/buildroo
 RUN echo "echo \"INPUT_MAKE_TARGET: $INPUT_MAKE_TARGET\"" >> /etc/buildroot.sh
 RUN echo "echo \"INPUT_BUILDROOT_EXTERNAL_PATH: $INPUT_BUILDROOT_EXTERNAL_PATH\"" >> /etc/buildroot.sh
 RUN echo "echo $*" >> /etc/buildroot.sh
+RUN echo "echo $(pwd)" >> /etc/buildroot.sh
 RUN echo "echo para num: $#" >> /etc/buildroot.sh
 RUN echo "if [ $# -eq 2 ]; then" >> /etc/buildroot.sh
 RUN echo "echo $1 $2" >> /etc/buildroot.sh
-RUN echo "-C $(pwd)/$1 $2" >> /etc/buildroot.sh
+RUN echo "make -C $(pwd)/$1 $2" >> /etc/buildroot.sh
 RUN echo "elif [ $# -eq 3 ]; then" >> /etc/buildroot.sh
 RUN echo "echo $1 $2 $3" >> /etc/buildroot.sh
 RUN echo "make BR2_EXTERNAL=$(pwd)/$3 -C $(pwd)/$1 $2" >> /etc/buildroot.sh
+RUN echo "elif [ $# -eq 1 ]; then" >> /etc/buildroot.sh
+RUN echo "echo $1" >> /etc/buildroot.sh
+RUN echo "make -C $(pwd)/ $1" >> /etc/buildroot.sh
 RUN echo "else" >> /etc/buildroot.sh
 RUN echo "echo para error" >> /etc/buildroot.sh
 RUN echo "exit 1" >> /etc/buildroot.sh
