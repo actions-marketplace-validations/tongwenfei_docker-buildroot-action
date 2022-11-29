@@ -40,6 +40,7 @@ RUN echo "#! /bin/bash" > /etc/buildroot.sh
 RUN echo "echo \"INPUT_BUILDROOT_PATH: $INPUT_BUILDROOT_PATH\"" >> /etc/buildroot.sh
 RUN echo "echo \"INPUT_MAKE_TARGET: $INPUT_MAKE_TARGET\"" >> /etc/buildroot.sh
 RUN echo "echo \"INPUT_BUILDROOT_EXTERNAL_PATH: $INPUT_BUILDROOT_EXTERNAL_PATH\"" >> /etc/buildroot.sh
+RUN echo "echo $*" >> /etc/buildroot.sh
 RUN echo "echo para num: $#" >> /etc/buildroot.sh
 RUN echo "if [ $# -eq 2 ]; then" >> /etc/buildroot.sh
 RUN echo "echo $1 $2" >> /etc/buildroot.sh
